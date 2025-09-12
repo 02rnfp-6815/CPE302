@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beethoven — Ninth (4th Movement)</title>
+  <style>
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: #f4f4f4;
+      padding: 30px;
+      color: #111;
+    }
+
+    .sheet {
+      width: 820px;
+      max-width: 96%;
+      margin: 0 auto;
+      background: #ececec;
+      border: 3px solid #222;
+      padding: 22px;
+      box-sizing: border-box;
+    }
+
+    header { text-align: center; margin-bottom: 8px; }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    h2 {
+      margin: 6px 0 10px;
+      font-size: 20px;
+      text-decoration: underline;
+    }
+
+    hr { border: none; border-top: 2px solid #999; margin: 10px 0 18px; }
+
+    .side-heading {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .content { counter-reset: lvl1; padding-left: 18px; }
+
+    .lvl1 {
+      counter-increment: lvl1;
+      margin: 8px 0;
+      position: relative;
+      padding-left: 36px;
+    }
+    .lvl1::before {
+      content: counter(lvl1) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+    }
+
+    .lvl1.has-sub { counter-reset: lvl2; }
+
+    .lvl2 {
+      counter-increment: lvl2;
+      margin: 6px 0;
+      position: relative;
+      padding-left: 34px;
+      font-style: normal;
+    }
+    .lvl2::before {
+      content: counter(lvl2) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .lvl2.has-sub { counter-reset: lvl3; }
+
+    .lvl3 {
+      counter-increment: lvl3;
+      margin: 4px 0;
+      position: relative;
+      padding-left: 30px;
+      font-size: 0.95em;
+    }
+    .lvl3::before {
+      content: counter(lvl3) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .italic { font-style: italic; }
+    .note { margin-top: 10px; font-size: 0.95em; color: #333; }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <h1>Beethoven’s Ninth Symphony</h1>
+      <h2>The Fourth Movement</h2>
+    </header>
+
+    <hr />
+
+    <div class="side-heading">Sonata-Concerto Form</div>
+
+    <div class="content" role="region" aria-label="Movement sections">
+      <div class="lvl1 italic">Open Ritornello</div>
+
+      <div class="lvl1 has-sub">Exposition
+        <!-- lvl2 numbers restart inside this lvl1 -->
+        <div class="lvl2 italic">Horror/Recitative</div>
+        <div class="lvl2">Joy Theme</div>
+        <div class="lvl2">Turkish Music</div>
+      </div>
+
+      <div class="lvl1 italic">Development</div>
+
+      <div class="lvl1 has-sub">Recapitulation
+        <div class="lvl2 has-sub">Joy Theme
+          <!-- lvl3 restarted inside this lvl2 -->
+          <div class="lvl3">Joy Theme</div>
+          <div class="lvl3">Awe Theme</div>
+        </div>
+      </div>
+
+      <div class="lvl1">Codas Nos. 1 2 3</div>
+   
+    </div>
+  </div>
+</body>
+</html>
