@@ -1,6 +1,6 @@
 -updated the activity 2.3
 
--updated the website portfolio
+-updated the website portfolio (html, css, and js file)
 
 -upload the folder for activity 3.1
 
