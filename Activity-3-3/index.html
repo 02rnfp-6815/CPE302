@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Activity 3.3 — Triangle Type (Simple)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{--bg:#f4f7fb;--card:#fff;--accent:#0d6efd;--muted:#444}
+  html,body{height:100%;margin:0}
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .card{
+    width:min(800px,92%);
+    background: rgba(255,255,255,0.86);
+    padding:28px;
+    border-radius:12px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    color:#111;
+  }
+
+  button{
+    padding:12px 18px;
+    border-radius:8px;
+    border:0;
+    background:#007bff;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 6px 14px rgba(0,123,255,0.22);
+  }
+  button:active{transform:translateY(1px)}
+
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Triangle Type — Activity 3.3</h1>
+
+    <p class="note">The program will tell you if the triangle is <strong>EQUILATERAL</strong>, <strong>ISOSCELES</strong>, or <strong>SCALENE</strong>.</p>
+
+    <p>Click <strong>Start</strong> and enter three side lengths when prompted. Inputs must be positive numbers. Click cancel to stop.</p>
+
+    <button id="startBtn" aria-label="Start triangle prompts">Start</button>
+  </div>
+
+<script>
+  function askNumber(label){
+    while(true){
+      const s = prompt(`Enter length of side ${label}:`);
+      if (s === null) return null;
+      if (s.trim()===''){ alert('Please type a number.'); continue; }
+      if (isNaN(s)){ alert('That is not a number.'); continue; }
+      const n = parseFloat(s);
+      if (!isFinite(n) || n <= 0){ alert('Enter a positive number.'); continue; }
+      return n;
+    }
+  }
+
+  function determineTriangle(a,b,c){
+    const eps = 1e-9;
+    if (a + b <= c + eps || a + c <= b + eps || b + c <= a + eps) {
+      alert('Not a valid triangle (triangle inequality not satisfied).');
+      return;
+    }
+    const ab = Math.abs(a-b) < eps;
+    const bc = Math.abs(b-c) < eps;
+    const ac = Math.abs(a-c) < eps;
+    if (ab && bc) alert('The triangle is EQUILATERAL.');
+    else if (ab || bc || ac) alert('The triangle is ISOSCELES.');
+    else alert('The triangle is SCALENE.');
+  }
+
+  document.getElementById('startBtn').addEventListener('click', ()=>{
+    const a = askNumber('a'); if (a===null) return;
+    const b = askNumber('b'); if (b===null) return;
+    const c = askNumber('c'); if (c===null) return;
+    determineTriangle(a,b,c);
+  });
+</script>
+</body>
+</html>
